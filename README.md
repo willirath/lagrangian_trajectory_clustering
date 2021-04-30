@@ -1,6 +1,7 @@
 # Lagrangian Trajectory Clustering
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/willirath/lagrangian_trajectory_clustering/main)
+Look at the [rendered notebooks](https://nbviewer.jupyter.org/github/willirath/lagrangian_trajectory_clustering/tree/main/notebooks/).
 
 We aim at applying clustering to Lagrangian trajectories in the ocean.
 
