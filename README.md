@@ -1,5 +1,7 @@
 # Lagrangian Trajectory Clustering
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/willirath/lagrangian_trajectory_clustering/main)
+
 We aim at applying clustering to Lagrangian trajectories in the ocean.
 
 ## Existing approaches
