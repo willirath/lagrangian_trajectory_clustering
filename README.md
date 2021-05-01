@@ -18,3 +18,21 @@ There's two review articles [1], [2] which come with code and examples [3] and a
 [3] https://github.com/bguillouet/trajectory_classification
 
 [4] https://github.com/bguillouet/traj-dist
+
+## Reading list
+
+(entirely copied from [4])
+
+[5] B. Lin and J. Su, “Shapes based trajectory queries for moving objects,” in Proceedings of the 13th annual ACM international workshop on Geographic information systems . ACM, 2005, pp. 21–30. doi: [/10.1145/1097064.1097069](https://doi.org/10.1145/1097064.1097069). 
+
+[6] H. Alt and M. Godau, “Computing the frechet distance between two polygonal curves,” International Journal of Computational Geometry & Applications , vol. 5, no. 01n02, pp. 75–91, 1995. doi: [10.1142/S0218195995000064](https://doi.org/10.1142/S0218195995000064) [[PDF](https://www.researchgate.net/profile/Helmut-Alt-2/publication/220669649_Computing_the_Frechet_Distance_between_Two_Polygonal_Curves/links/00b7d518a824cbfe5f000000/Computing-the-Frechet-Distance-between-Two-Polygonal-Curves.pdf)]
+
+[7] T. Eiter and H. Mannila, “Computing discrete fréchet distance,” Citeseer, Tech. Rep., 1994. [[PDF](http://www.kr.tuwien.ac.at/staff/eiter/et-archive/cdtr9464.pdf)]
+
+[8] D. J. Berndt and J. Clifford , “Using dynamic time warping to find patterns in time series.” in KDD workshop, vol. 10, no. 16. Seattle, WA, 1994, pp. 359–370 [[PDF](https://www.aaai.org/Papers/Workshops/1994/WS-94-03/WS94-03-031.pdf)]
+
+[9] M. Vlachos, G. Kollios, and D. Gunopulos, “Discovering similar multi-dimensional trajectories,” in Data Engineering, 2002. Proceedings. 18th International Conference on .IEEE, 2002, pp. 673–684 [[PDF](http://people.cs.aau.dk/~simas/teaching/trajectories/00994784.pdf)]
+
+[10] L. Chen and R. Ng, “On the marriage of lp-norms and edit distance,” in Proceedings of the Thirtieth international conference on Very large data bases-Volume 30 . VLDB Endowment, 2004, pp. 792–803. doi: [10.5555/1316689.1316758](https://doi.org/10.5555/1316689.1316758). [[PDF](https://dl.acm.org/doi/pdf/10.5555/1316689.1316758)]
+
+[11] L. Chen, M. T. ̈ Ozsu, and V. Oria, “Robust and fast similarity search for moving object trajectories,” in Proceedings of the 2005 ACM SIGMOD international conference on Management of data . ACM, 2005, pp. 491–502. doi: [10.1145/1066157.1066213](https://doi.org/10.1145/1066157.1066213). [[PDF](https://dl.acm.org/doi/pdf/10.1145/1066157.1066213)]
