@@ -36,3 +36,5 @@ There's two review articles [1], [2] which come with code and examples [3] and a
 [10] L. Chen and R. Ng, “On the marriage of lp-norms and edit distance,” in Proceedings of the Thirtieth international conference on Very large data bases-Volume 30 . VLDB Endowment, 2004, pp. 792–803. doi: [10.5555/1316689.1316758](https://doi.org/10.5555/1316689.1316758). [[PDF](https://dl.acm.org/doi/pdf/10.5555/1316689.1316758)]
 
 [11] L. Chen, M. T. ̈ Ozsu, and V. Oria, “Robust and fast similarity search for moving object trajectories,” in Proceedings of the 2005 ACM SIGMOD international conference on Management of data . ACM, 2005, pp. 491–502. doi: [10.1145/1066157.1066213](https://doi.org/10.1145/1066157.1066213). [[PDF](https://dl.acm.org/doi/pdf/10.1145/1066157.1066213)]
+
+[12] Wichmann, D., Kehl, C., Dijkstra, H. A., and van Sebille, E.: Ordering of trajectories reveals hierarchical finite-time coherent sets in Lagrangian particle data: detecting Agulhas rings in the South Atlantic Ocean, Nonlin. Processes Geophys., 28, 43–59, https://doi.org/10.5194/npg-28-43-2021, 2021. [[PDF](https://npg.copernicus.org/articles/28/43/2021/npg-28-43-2021.pdf)]
