@@ -5,6 +5,15 @@ Look at the [rendered notebooks](https://nbviewer.jupyter.org/github/willirath/l
 
 We aim at applying clustering to Lagrangian trajectories in the ocean.
 
+## Environment
+
+To start Jupyter, run
+```shell
+$ docker build -t lagtrajclus:latest -f Dockerfile .
+$ docker run -p8888:8888 -v $PWD:/work -w /work lagtrajclus:latest
+```
+and open the link <http://127.0.0.1:8888/lab...> displayed in the terminal.
+
 ## Existing approaches
 
 There's two review articles [1], [2] which come with code and examples [3] and a standalone package for trajectory distances [4].
