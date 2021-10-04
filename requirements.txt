@@ -9,4 +9,4 @@ numba
 numpy
 pandas
 shapely
-sklearn
+scikit-learn
