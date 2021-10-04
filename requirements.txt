@@ -1,0 +1,12 @@
+cartopy
+editdistance
+geopandas
+h3-py
+haversine
+matplotlib
+movingpandas
+numba
+numpy
+pandas
+shapely
+scikit-learn

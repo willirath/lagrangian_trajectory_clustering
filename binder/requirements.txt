@@ -1,5 +1,1 @@
-editdistance
-matplotlib
-numpy
-pandas
-sklearn
+requirements.txt
