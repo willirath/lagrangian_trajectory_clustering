@@ -1,5 +1,8 @@
+aiohttp
 cartopy
 editdistance
+fastparquet
+fsspec
 geopandas
 h3-py
 haversine
@@ -8,5 +11,8 @@ movingpandas
 numba
 numpy
 pandas
+pooch
+pys2index
 shapely
 scikit-learn
+zarr
