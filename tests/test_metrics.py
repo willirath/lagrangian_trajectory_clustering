@@ -1,7 +1,7 @@
 import pytest
 
 
-from lagtrajclust.metrics import (
+from lagrangian_trajectory_clustering.metrics import (
     lcs_numpy,
     lcs_pure,
     lcs_numpy_numba,
