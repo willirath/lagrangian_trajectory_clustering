@@ -2,8 +2,6 @@ import pandas as pd
 import numpy as np
 
 import h3
-import h3.api.numpy_int
-import h3.api.basic_str
 
 
 def _get_step_sizes(df):
@@ -115,25 +113,111 @@ def h3_series_to_h3_parent(h3_series, resolution=0):
     return h3_series.apply(lambda cellid: h3.h3_to_parent(cellid, resolution))
 
 
-def h3_series_to_series_of_h3_sequences(h3_series):
-    return h3_series.groupby(h3_series.index.get_level_values(0)).apply(list)
+def h3_series_to_series_of_h3_sequences(h3_series=None, groupby=None):
+    """Turn a series of H3s into a series of lists of H3s.
+    
+    Parameters
+    ----------
+    h3_series: pandas.Series
+        Each element contains a single h3.
+    groupby: sequence
+        Optional. Will be used to group the h3s. If it's not given, the level 0
+        of the index of h3_series will be used to group.
+    
+    Returns
+    -------
+    pandas.Series:
+        Each element contains an ordered collection (list) of h3s.
+
+    """
+    if groupby is None:
+        groupby = h3_series.index.get_level_values(0)
+    return h3_series.groupby(groupby).apply(list)
 
 
 def _get_non_repeating_sequence(sequence):
     sequence = iter(sequence)
     current = next(sequence)
-    yield current  # always return first element
+    # always yield first element
+    yield current
     for new in sequence:
+        # only yield next element if it's different
         if new != current:
             yield new
             current = new
 
 
 def remove_subsequent_identical_elements(h3_series):
+    """From a series of ordered collections of H3s, remove subsequent dupes.
+    
+    Parameters
+    ----------
+    h3_series: pandas.Series
+        Each element contains a list or other ordered collection of H3s.
+    
+    Returns
+    -------
+    pandas.Series
+        Same as input but with subsequent dupes removed.
+    
+    """
     return h3_series.apply(_get_non_repeating_sequence).apply(list)
 
 
-def transform_unique_transitions(h3_sequence):
-    return list(
-        filter(lambda se: se[0] != se[1], zip(h3_sequence[:-1], h3_sequence[1:]))
-    )
+def _get_h3_line_between(sequence):
+    sequence = iter(sequence)
+    last = next(sequence)
+    for new in sequence:
+        for h3line in list(h3.h3_line(last, new))[:-1]:
+            yield h3line
+        last = new
+    yield last
+
+
+def fill_in_h3_gaps(h3_series):
+    """In a series of ordered collections of H3s, fill in the gaps.
+
+    Uses h3_line.
+    
+    Parameters
+    ----------
+    h3_series: pandas.Series
+        Each element contains a list or other ordered collection of H3s.
+    
+    Returns
+    -------
+    pandas.Series
+        Same as input but with gaps between subsequent elements filled.
+    
+    """
+    return h3_series.apply(_get_h3_line_between).apply(list)
+
+
+def h3_sequences_to_series(h3_sequences):
+    """Turn a sequence of H3s into a pandas series.
+    
+    Parameters
+    ----------
+    h3_sequences: pandas.Series
+        Each element contains an ordered collection of H3s.
+
+    Returns
+    -------
+    pandas.Series
+        Each element contains a separate H3. To enumerate the elements fo the
+        original ordered collections, there will be an additional index level
+        called 'obs'.
+
+    """
+    obs = h3_sequences.apply(lambda lst: list(range(len(lst)))).explode().rename("obs")
+    h3_series = h3_sequences.explode(ignore_index=False)
+    traj = h3_series.index
+    return h3_series.reset_index().set_index([traj, obs])
+
+
+def h3_to_geo(h3_series):
+    return pd.DataFrame(
+        h3_series.apply(h3.h3_to_geo).values.tolist(),
+        columns=["latitude", "longitude"],
+    ).set_index(h3_series.index)
+

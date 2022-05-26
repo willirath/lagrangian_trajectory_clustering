@@ -1,0 +1,13 @@
+name: test_env_lagrangian_trajectory_clustering
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy
+  - numba
+  - pandas
+  - pytest
+  - pip:
+      - codecov
+      - pytest-cov
+      - coverage[toml]

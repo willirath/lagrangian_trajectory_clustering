@@ -1,0 +1,26 @@
+name: lagrangian_trajectory_clustering
+channels:
+  - conda-forge
+dependencies:
+  - python=3
+  - aiohttp
+  - cartopy
+  - editdistance
+  - fastparquet
+  - fsspec
+  - geopandas
+  - h3-py
+  - haversine
+  - jupyter
+  - jupyterlab
+  - matplotlib
+  - movingpandas
+  - numba
+  - numpy
+  - pandas
+  - pooch
+  - pys2index
+  - pytest
+  - scikit-learn
+  - shapely
+  - zarr
