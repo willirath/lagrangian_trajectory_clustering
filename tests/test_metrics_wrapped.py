@@ -8,7 +8,6 @@ from lagrangian_trajectory_clustering.metrics import (
     levenshtein_numpy,
     levenshtein_numpy_numba,
 )
-
 from lagrangian_trajectory_clustering.metrics_wrapped import wrapped_metric
 
 
