@@ -17,4 +17,3 @@
 - Transform to series of sequences (lists?) of h3 cells. The result is a pandas series where the index is a multi-index from the orignal trajectory number and an integer enumerating the steps along the (filled in) trajectory at the current `working_resolution`. For each of the trajectory, id's we have a sequence which can be an argument to a sequence-comparison metric like the Levenshtein distances, LCS or similar.
 - For each cluster go to next higher working resolution and repeat (from the raw data).
 - Build a tree.
-

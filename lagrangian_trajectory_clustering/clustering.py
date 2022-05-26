@@ -1,10 +1,10 @@
-import editdistance
-
-from sklearn.cluster import DBSCAN, OPTICS
 from functools import partial
 
-import pandas as pd
+import editdistance
 import numpy as np
+import pandas as pd
+
+from sklearn.cluster import DBSCAN, OPTICS
 
 
 def _edist_metric(x, y, h3_sequences, normalize=False):
@@ -20,7 +20,7 @@ def _edist_metric(x, y, h3_sequences, normalize=False):
 
 def dbscan_with_edist_metric(h3_sequences, eps=0.8, normalize=True, **kwargs):
     """Run DBSCAN with edit distance.
-    
+
     Parameters
     ----------
     h3_sequences: pandas.Series
@@ -29,14 +29,14 @@ def dbscan_with_edist_metric(h3_sequences, eps=0.8, normalize=True, **kwargs):
         eps parameter of sklearn's DBSCAN. Defaults to 0.8.
     normalize: bool
         Normalize edit distance (value 1 if complete sequence needs replacement).
-    
+
     All further keyword arguments are passed to sklearns DBSCAN at instantiation.
 
     Returns
     -------
     pandas.Series
         Cluster indices. Index is from the h3_sequences.
-    
+
     """
     dbs = DBSCAN(
         metric=partial(_edist_metric, h3_sequences=h3_sequences, normalize=normalize),
@@ -53,21 +53,21 @@ def dbscan_with_edist_metric(h3_sequences, eps=0.8, normalize=True, **kwargs):
 
 def optics_with_edist_metric(h3_sequences, normalize=True, **kwargs):
     """Run OPTICS with edit distance.
-    
+
     Parameters
     ----------
     h3_sequences: pandas.Series
         Series of lists of h3s.
     normalize: bool
         Normalize edit distance (value 1 if complete sequence needs replacement).
-    
+
     All further keyword arguments are passed to sklearns OPTICS at instantiation.
 
     Returns
     -------
     pandas.Series
         Cluster indices. Index is from the h3_sequences.
-    
+
     """
     cls = OPTICS(
         metric=partial(_edist_metric, h3_sequences=h3_sequences, normalize=normalize),

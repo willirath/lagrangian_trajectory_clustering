@@ -13,6 +13,6 @@ numpy
 pandas
 pooch
 pys2index
-shapely
 scikit-learn
+shapely
 zarr

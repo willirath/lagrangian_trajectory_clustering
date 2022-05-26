@@ -1,17 +1,16 @@
-import pandas as pd
-import numpy as np
-
 import h3
+import numpy as np
+import pandas as pd
 
 
 def _get_step_sizes(df):
     """Diagnose all step sizes along trajectories.
-    
+
     Parameters
     ----------
     df: pandas.Dataframe
         Contains columns "longitude" and "latitude".
-        
+
     Returns
     -------
     pandas.Series
@@ -37,11 +36,11 @@ def _get_step_sizes(df):
 
 def find_max_needed_h3_resolution(df, quantile=0.5):
     """Estimate the max. meaningful h3 resolution for the given data.
-    
-    This will find the smallest stepsize in the data and return the highest 
+
+    This will find the smallest stepsize in the data and return the highest
     h3 resolution needed to resolve this stepsize. This stepsize is diagnosed as the
     median of all steps.
-    
+
     Parameters
     ----------
     df: pandas.Dataframe
@@ -49,7 +48,7 @@ def find_max_needed_h3_resolution(df, quantile=0.5):
     quantile: float
         Quantile to be used for the definition of the typical step size.
         Defaults to 0.5 (the median).
-    
+
     Returns
     -------
     int
@@ -69,7 +68,7 @@ def find_max_needed_h3_resolution(df, quantile=0.5):
 
 def add_max_res_h3_column(df, max_res=15):
     """Add a column containing the max. resolution h3 cell.
-    
+
     Parameters
     ----------
     df: pandas.Dataframe
@@ -77,7 +76,7 @@ def add_max_res_h3_column(df, max_res=15):
     max_res: int
         Max resolution needed. Defaults to 15 (which is the max.
         possible h3 resolution of approx. 0.5 meters)
-        
+
     Returns
     -------
     pandas.Dataframe
@@ -86,7 +85,9 @@ def add_max_res_h3_column(df, max_res=15):
     """
     df["h3maxres"] = df.apply(
         lambda rw: h3.geo_to_h3(
-            lat=rw["latitude"], lng=rw["longitude"], resolution=max_res,
+            lat=rw["latitude"],
+            lng=rw["longitude"],
+            resolution=max_res,
         ),
         axis=1,
     )
@@ -96,7 +97,7 @@ def add_max_res_h3_column(df, max_res=15):
 
 def h3_series_to_h3_parent(h3_series, resolution=0):
     """Convert a df with h3 cell ids to a coarser resolution.
-    
+
     Parameters
     ----------
     h3_series: pandas.Dataframe
@@ -104,7 +105,7 @@ def h3_series_to_h3_parent(h3_series, resolution=0):
     resolution: int
         H3 resolution. Default to 0 corresponding to approx. 1000 kilometers.
         See: https://h3geo.org/docs/core-library/restable/
-        
+
     Returns
     -------
     pandas.Series
@@ -115,7 +116,7 @@ def h3_series_to_h3_parent(h3_series, resolution=0):
 
 def h3_series_to_series_of_h3_sequences(h3_series=None, groupby=None):
     """Turn a series of H3s into a series of lists of H3s.
-    
+
     Parameters
     ----------
     h3_series: pandas.Series
@@ -123,7 +124,7 @@ def h3_series_to_series_of_h3_sequences(h3_series=None, groupby=None):
     groupby: sequence
         Optional. Will be used to group the h3s. If it's not given, the level 0
         of the index of h3_series will be used to group.
-    
+
     Returns
     -------
     pandas.Series:
@@ -149,17 +150,17 @@ def _get_non_repeating_sequence(sequence):
 
 def remove_subsequent_identical_elements(h3_series):
     """From a series of ordered collections of H3s, remove subsequent dupes.
-    
+
     Parameters
     ----------
     h3_series: pandas.Series
         Each element contains a list or other ordered collection of H3s.
-    
+
     Returns
     -------
     pandas.Series
         Same as input but with subsequent dupes removed.
-    
+
     """
     return h3_series.apply(_get_non_repeating_sequence).apply(list)
 
@@ -178,24 +179,24 @@ def fill_in_h3_gaps(h3_series):
     """In a series of ordered collections of H3s, fill in the gaps.
 
     Uses h3_line.
-    
+
     Parameters
     ----------
     h3_series: pandas.Series
         Each element contains a list or other ordered collection of H3s.
-    
+
     Returns
     -------
     pandas.Series
         Same as input but with gaps between subsequent elements filled.
-    
+
     """
     return h3_series.apply(_get_h3_line_between).apply(list)
 
 
 def h3_sequences_to_series(h3_sequences):
     """Turn a sequence of H3s into a pandas series.
-    
+
     Parameters
     ----------
     h3_sequences: pandas.Series
@@ -220,4 +221,3 @@ def h3_to_geo(h3_series):
         h3_series.apply(h3.h3_to_geo).values.tolist(),
         columns=["latitude", "longitude"],
     ).set_index(h3_series.index)
-
