@@ -1,5 +1,6 @@
-from numba import jit
 import numpy as np
+
+from numba import jit
 
 
 def lcs_numpy(x, y):
@@ -69,7 +70,9 @@ def lcs_pure(x, y):
     C = []
     for i in range(m + 1):
         C.append(
-            [0,]
+            [
+                0,
+            ]
         )
     for j in range(1, n + 1):
         C[0].append(0)
