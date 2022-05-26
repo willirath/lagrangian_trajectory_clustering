@@ -1,5 +1,11 @@
 # Lagrangian Trajectory Clustering
 
+[![Build Status](https://github.com/willirath/lagrangian_trajectory_clustering/workflows/Tests/badge.svg)](https://github.com/willirath/lagrangian_trajectory_clustering/actions)
+[![codecov](https://codecov.io/gh/willirath/lagrangian_trajectory_clustering/branch/main/graph/badge.svg)](https://codecov.io/gh/willirath/lagrangian_trajectory_clustering)
+[![License:MIT](https://img.shields.io/badge/License-MIT-lightgray.svg?style=flt-square)](https://opensource.org/licenses/MIT)
+[![pypi](https://img.shields.io/pypi/v/lagrangian_trajectory_clustering.svg)](https://pypi.org/project/lagrangian_trajectory_clustering)
+[![Documentation Status](https://readthedocs.org/projects/lagrangian_trajectory_clustering/badge/?version=latest)](https://lagrangian_trajectory_clustering.readthedocs.io/en/latest/?badge=latest)
+
 Look at the [rendered notebooks](https://nbviewer.jupyter.org/github/willirath/lagrangian_trajectory_clustering/tree/main/notebooks/).
 
 We aim at applying clustering to Lagrangian trajectories in the ocean.
