@@ -136,5 +136,4 @@ def levenshtein_numpy(x, y):
 
 lcs_numpy_numba = jit(lcs_numpy)
 lcs_pure_numba = jit(lcs_pure)
-
 levenshtein_numpy_numba = jit(levenshtein_numpy)
