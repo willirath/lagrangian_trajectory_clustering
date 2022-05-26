@@ -9,6 +9,7 @@ dependencies:
   - fastparquet
   - fsspec
   - geopandas
+  - git
   - h3-py
   - haversine
   - jupyter
