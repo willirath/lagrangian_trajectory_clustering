@@ -94,3 +94,4 @@ target/
 *.csv
 *.csv.gz
 *.pq
+_version.py
