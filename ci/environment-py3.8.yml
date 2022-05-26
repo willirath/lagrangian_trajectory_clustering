@@ -3,13 +3,11 @@ channels:
   - conda-forge
 dependencies:
   - python=3.8
-  ############## These will have to be adjusted to your specific project
   - numpy
-  - scipy
-  - xarray
-  ##############
+  - numba
+  - pandas
   - pytest
   - pip:
-    - codecov
-    - pytest-cov
-    - coverage[toml]
+      - codecov
+      - pytest-cov
+      - coverage[toml]
