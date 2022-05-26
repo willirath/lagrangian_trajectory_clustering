@@ -1,6 +1,8 @@
 def wrapped_metric(metric_function=None, sequences_mapping=None, normalize=False):
     """Decorator for wrapped metric.
     
+    Adapted from <https://scikit-learn.org/stable/faq.html?highlight=dbscan%20metric#how-do-i-deal-with-string-data-or-trees-graphs>
+
     Parameters
     ----------
     metric_function: function
@@ -15,7 +17,8 @@ def wrapped_metric(metric_function=None, sequences_mapping=None, normalize=False
     Returns
     -------
     function
-        Wrapped metric accepting two arguments x and y.
+        Wrapped metric accepting two arguments x and y
+        (which both are singleton list-like).
     
     """
     if normalize:
