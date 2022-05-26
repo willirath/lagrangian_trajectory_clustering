@@ -37,7 +37,7 @@ There's two review articles [1], [2] which come with code and examples [3] and a
 
 (entirely copied from [4])
 
-[5] B. Lin and J. Su, “Shapes based trajectory queries for moving objects,” in Proceedings of the 13th annual ACM international workshop on Geographic information systems . ACM, 2005, pp. 21–30. doi: [/10.1145/1097064.1097069](https://doi.org/10.1145/1097064.1097069). 
+[5] B. Lin and J. Su, “Shapes based trajectory queries for moving objects,” in Proceedings of the 13th annual ACM international workshop on Geographic information systems . ACM, 2005, pp. 21–30. doi: [/10.1145/1097064.1097069](https://doi.org/10.1145/1097064.1097069).
 
 [6] H. Alt and M. Godau, “Computing the frechet distance between two polygonal curves,” International Journal of Computational Geometry & Applications , vol. 5, no. 01n02, pp. 75–91, 1995. doi: [10.1142/S0218195995000064](https://doi.org/10.1142/S0218195995000064) [[PDF](https://www.researchgate.net/profile/Helmut-Alt-2/publication/220669649_Computing_the_Frechet_Distance_between_Two_Polygonal_Curves/links/00b7d518a824cbfe5f000000/Computing-the-Frechet-Distance-between-Two-Polygonal-Curves.pdf)]
 

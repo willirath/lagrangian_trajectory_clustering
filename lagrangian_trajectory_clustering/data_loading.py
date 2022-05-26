@@ -1,18 +1,20 @@
 from pathlib import Path
-from pooch import retrieve
+
 import numpy as np
 import pandas as pd
 import xarray as xr
 
+from pooch import retrieve
+
 
 def load_medsea_trajectories(cache_path="data/"):
     """Load Med Sea trajectories from https://doi.org/10.5281/zenodo.4650317
-    
+
     Parameters
     ----------
     cache_path: str or pathlike
         Path to the cache dir. Defaults to "data/".
-    
+
     Returns
     -------
     pandas.DataFrame
@@ -39,12 +41,12 @@ def load_medsea_trajectories(cache_path="data/"):
 
 def load_labsea_trajectories(cache_path="data/"):
     """Load lab sea data from http://hdl.handle.net/20.500.12085/830c72af-b5ca-44ac-8357-3173392f402b
-    
+
     Parameters
     ----------
     cache_path: str or pathlike
         Path to the cache dir. Defaults to "data/".
-    
+
     Returns
     -------
     pandas.DataFrame
@@ -57,7 +59,17 @@ def load_labsea_trajectories(cache_path="data/"):
         ds = xr.open_zarr(
             "https://data.geomar.de/downloads/20.500.12085/830c72af-b5ca-44ac-8357-3173392f402b/submitted/tracks_randomvel_mxl_osnap_backwards_1990.zarr/"
         )
-        df = ds[["lat", "lon", "time",]].isel(traj=slice(0, 10_000)).to_dataframe()
+        df = (
+            ds[
+                [
+                    "lat",
+                    "lon",
+                    "time",
+                ]
+            ]
+            .isel(traj=slice(0, 10_000))
+            .to_dataframe()
+        )
 
         df = df.reset_index()
         df.to_csv(file_name, index=False)
@@ -74,10 +86,13 @@ def load_labsea_trajectories(cache_path="data/"):
 
 
 def subset_trajectories(
-    df=None, num_traj=300, use_random=False, random_seed=None,
+    df=None,
+    num_traj=300,
+    use_random=False,
+    random_seed=None,
 ):
     """Subset trajectory data.
-    
+
     Parameters
     ----------
     df: dataframe
@@ -89,7 +104,7 @@ def subset_trajectories(
         If False, choose first num_traj trajectories.
     random_seed: int
         Optional seed for the RNG used to select random trajectories.
-    
+
     Returns
     -------
     pandas.DataFrame

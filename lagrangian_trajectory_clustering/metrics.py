@@ -6,16 +6,16 @@ def lcs_numpy(x, y):
     """Calculate the longest common subsequence of x and y.
 
     Numpy based-implementation.
-    
+
     See <https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Computing_the_length_of_the_LCS>
-    
+
     Parameters
     ----------
     x: iterable
         First sequence.
     y: iterable
         First sequence.
-        
+
     Even though mixed-type sequences (e.g. [1, 2, "a", "b", True]) will work here, this is not supported as
     Numba seems to have problems with it.
 
@@ -23,7 +23,7 @@ def lcs_numpy(x, y):
     -------
     int
         Length of the longest common subsequence.
-        
+
     """
     m = len(x)
     n = len(y)
@@ -45,9 +45,9 @@ def lcs_pure(x, y):
     """Calculate the longest common subsequence of x and y.
 
     Pure Python implementation.
-    
+
     See <https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Computing_the_length_of_the_LCS>
-    
+
     Parameters
     ----------
     x: iterable
@@ -57,12 +57,12 @@ def lcs_pure(x, y):
 
     Even though mixed-type sequences (e.g. [1, 2, "a", "b", True]) will work here, this is not supported as
     Numba seems to have problems with it.
-        
+
     Returns
     -------
     int
         Length of the longest common subsequence.
-        
+
     """
     m = len(x)
     n = len(y)
@@ -82,5 +82,5 @@ def lcs_pure(x, y):
     return C[m][n]
 
 
-lcs_numpy_numba = njit(lcs_numpy)
-lcs_pure_numba = njit(lcs_pure)
+lcs_numpy_numba = jit(lcs_numpy)
+lcs_pure_numba = jit(lcs_pure)

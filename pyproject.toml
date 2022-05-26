@@ -19,7 +19,7 @@ quiet = false
 color = true
 
 [tool.isort]
-known_third_party = ["numpy", "pytest", "setuptools"]
+known_third_party = ["editdistance", "geopandas", "h3", "numba", "numpy", "pandas", "pkg_resources", "pooch", "pytest", "setuptools", "shapely", "sklearn", "xarray"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
