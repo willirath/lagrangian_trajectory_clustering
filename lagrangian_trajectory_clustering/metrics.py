@@ -16,6 +16,9 @@ def lcs_numpy(x, y):
     y: iterable
         First sequence.
         
+    Even though mixed-type sequences (e.g. [1, 2, "a", "b", True]) will work here, this is not supported as
+    Numba seems to have problems with it.
+
     Returns
     -------
     int
@@ -51,6 +54,9 @@ def lcs_pure(x, y):
         First sequence.
     y: iterable
         First sequence.
+
+    Even though mixed-type sequences (e.g. [1, 2, "a", "b", True]) will work here, this is not supported as
+    Numba seems to have problems with it.
         
     Returns
     -------
