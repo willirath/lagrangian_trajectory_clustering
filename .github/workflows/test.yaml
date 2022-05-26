@@ -2,7 +2,11 @@ name: Tests
 on:
   push:
     branches:
+<<<<<<< HEAD
       - "main"
+=======
+      - "master"
+>>>>>>> 9a09afd... Use jbusecke's cookiecutter
   pull_request:
     branches:
       - "*"

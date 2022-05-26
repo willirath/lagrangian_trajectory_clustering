@@ -18,4 +18,3 @@ def test_lcs(lcs_func):
     assert 0 == lcs_func("YYY", "XXX")
     assert 1 == lcs_func("__Y", "YYY")
     assert 0 == lcs_func("", "")
-
