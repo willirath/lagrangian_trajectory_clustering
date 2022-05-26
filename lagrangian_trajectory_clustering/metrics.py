@@ -1,5 +1,5 @@
 import numpy as np
-from numba import jit
+from numba import jit, njit
 
 
 def lcs_numpy(x, y):
@@ -76,5 +76,5 @@ def lcs_pure(x, y):
     return C[m][n]
 
 
-lcs_numpy_numba = jit(lcs_numpy)
-lcs_pure_numba = jit(lcs_pure)
+lcs_numpy_numba = njit(lcs_numpy)
+lcs_pure_numba = njit(lcs_pure)
