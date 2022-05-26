@@ -70,7 +70,9 @@ def lcs_pure(x, y):
     C = []
     for i in range(m + 1):
         C.append(
-            [0,]
+            [
+                0,
+            ]
         )
     for j in range(1, n + 1):
         C[0].append(0)
@@ -123,7 +125,11 @@ def levenshtein_numpy(x, y):
             else:
                 cost = 1
 
-            d[i, j] = min(d[i - 1, j] + 1, d[i, j - 1] + 1, d[i - 1, j - 1] + cost,)
+            d[i, j] = min(
+                d[i - 1, j] + 1,
+                d[i, j - 1] + 1,
+                d[i - 1, j - 1] + cost,
+            )
 
     return d[m, n]
 

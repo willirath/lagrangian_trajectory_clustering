@@ -1,9 +1,8 @@
-import pytest
-
-
-from string import ascii_uppercase
 import random
 
+from string import ascii_uppercase
+
+import pytest
 
 from lagrangian_trajectory_clustering.metrics import (
     lcs_numpy,
