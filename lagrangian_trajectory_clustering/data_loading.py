@@ -122,7 +122,17 @@ def load_labsea_trajectories(cache_path="data/"):
         ds = xr.open_zarr(
             "https://data.geomar.de/downloads/20.500.12085/830c72af-b5ca-44ac-8357-3173392f402b/submitted/tracks_randomvel_mxl_osnap_backwards_1990.zarr/"
         )
-        df = ds[["lat", "lon", "time",]].isel(traj=slice(0, 10_000)).to_dataframe()
+        df = (
+            ds[
+                [
+                    "lat",
+                    "lon",
+                    "time",
+                ]
+            ]
+            .isel(traj=slice(0, 10_000))
+            .to_dataframe()
+        )
 
         df = df.reset_index()
         df.to_csv(file_name, index=False)
@@ -139,7 +149,10 @@ def load_labsea_trajectories(cache_path="data/"):
 
 
 def subset_trajectories(
-    df=None, num_traj=300, use_random=False, random_seed=None,
+    df=None,
+    num_traj=300,
+    use_random=False,
+    random_seed=None,
 ):
     """Subset trajectory data.
 
