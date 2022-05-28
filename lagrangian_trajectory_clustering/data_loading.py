@@ -84,7 +84,7 @@ def load_medsea_trajectories(cache_path="data/"):
         All trajectories in dataset.
     """
     file_name = retrieve(
-        url="https://zenodo.org/record/4650317/files/trajectories_nostokes_subset_10000.csv.gz",
+        url="doi:10.5281/zenodo.4650317/trajectories_nostokes_subset_10000.csv.gz",
         path=cache_path,
         known_hash="605e422d5fb18b0379ab1d8f0f4f2e79c142d07270f20db609fd4261d4a4f1fe",
     )
