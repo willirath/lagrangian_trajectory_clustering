@@ -4,6 +4,7 @@ editdistance
 fastparquet
 fsspec
 geopandas
+git
 h3-py
 haversine
 matplotlib
