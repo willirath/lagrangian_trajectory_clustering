@@ -12,11 +12,11 @@ def geo_df_to_grid_series(
     lon_num=361,
 ):
     """Transform geo df to grid index tuples.
-    
+
     Parameters
     ----------
     geo_df: pandas.DataFrame
-        Has columns "longitude" and "latitude".       
+        Has columns "longitude" and "latitude".
     lat_start: float
         Left edge of leftmost lat bin. Defaults to -90.
     lat_end: float
@@ -55,7 +55,7 @@ def grid_series_to_geo_df(
     lon_num=361,
 ):
     """Transform grid index tuples to geo dataframe.
-    
+
     Parameters
     ----------
     grid_series: pandas.Series
@@ -77,7 +77,7 @@ def grid_series_to_geo_df(
     -------
     pandas.DataFrame
         Has columns "longitude" and "latitude". Has the same index as grid_series.
-        
+
     """
     dlon = (lon_end - lon_start) / (lon_num - 1)
     dlat = (lat_end - lat_start) / (lat_num - 1)

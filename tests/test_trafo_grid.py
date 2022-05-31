@@ -1,16 +1,23 @@
+import pandas as pd
+
 from lagrangian_trajectory_clustering.trafo.grid import (
     geo_df_to_grid_series,
     grid_series_to_geo_df,
 )
 
-import pandas as pd
-
 
 def test_geo_to_grid():
     """Test that traf from geo to grid indices works as expected."""
     traj_df = pd.DataFrame(
-        {"longitude": [-11.1, 12.3, 45.1], "latitude": [-80.5, 70.4, 53.1],},
-        index=[0, 1, 2,],
+        {
+            "longitude": [-11.1, 12.3, 45.1],
+            "latitude": [-80.5, 70.4, 53.1],
+        },
+        index=[
+            0,
+            1,
+            2,
+        ],
     )
     grid_series = geo_df_to_grid_series(
         traj_df,
@@ -32,8 +39,15 @@ def test_geo_to_grid():
 def test_grid_to_geo():
     """Test that trafo from grid indices to geo works as expexted."""
     traj_df = pd.DataFrame(
-        {"longitude": [-11.1, 12.3, 45.1], "latitude": [-80.5, 70.4, 53.1],},
-        index=[0, 1, 2,],
+        {
+            "longitude": [-11.1, 12.3, 45.1],
+            "latitude": [-80.5, 70.4, 53.1],
+        },
+        index=[
+            0,
+            1,
+            2,
+        ],
     )
     grid_series = geo_df_to_grid_series(
         traj_df,
@@ -65,8 +79,15 @@ def test_grid_to_geo():
 def test_geo_to_grid_idempotency():
     """Test that repeated application of the grid trafo does not change results."""
     traj_df = pd.DataFrame(
-        {"longitude": [-11.1, 12.3, 45.1], "latitude": [-80.5, 70.4, 53.1],},
-        index=[0, 1, 2,],
+        {
+            "longitude": [-11.1, 12.3, 45.1],
+            "latitude": [-80.5, 70.4, 53.1],
+        },
+        index=[
+            0,
+            1,
+            2,
+        ],
     )
     grid_series_0 = geo_df_to_grid_series(
         traj_df,
