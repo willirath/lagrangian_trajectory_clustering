@@ -3,37 +3,6 @@ import numpy as np
 import pandas as pd
 
 
-def _get_step_sizes(df):
-    """Diagnose all step sizes along trajectories.
-
-    Parameters
-    ----------
-    df: pandas.Dataframe
-        Contains columns "longitude" and "latitude".
-
-    Returns
-    -------
-    pandas.Series
-        Contains step sizes in meters.
-
-    """
-    step_lengths_meters = (
-        111e3
-        * (
-            df.groupby("traj")["latitude"].diff() ** 2
-            + (
-                df.groupby("traj")["longitude"].diff()
-                * np.cos(np.deg2rad(df["latitude"]))
-            )
-            ** 2
-        )
-        ** 0.5
-    )
-    # replace 0 and drop invalids
-    step_lengths_meters = step_lengths_meters.replace({0: np.nan}).dropna()
-    return step_lengths_meters
-
-
 def find_max_needed_h3_resolution(df, quantile=0.5):
     """Estimate the max. meaningful h3 resolution for the given data.
 
@@ -57,7 +26,7 @@ def find_max_needed_h3_resolution(df, quantile=0.5):
     See https://h3geo.org/docs/core-library/restable/
     """
     # dirty but good enough step length estimate
-    step_lengths_meters = _get_step_sizes(df)
+    step_lengths_meters = get_step_sizes(df)
     typical_step_length_meters = step_lengths_meters.quantile(quantile)
     h3_lengths_meters = [(h3.hex_area(res) ** 0.5) * 1e3 for res in range(0, 16)]
     max_needed_resolution = sum(
@@ -134,35 +103,6 @@ def h3_series_to_series_of_h3_sequences(h3_series=None, groupby=None):
     if groupby is None:
         groupby = h3_series.index.get_level_values(0)
     return h3_series.groupby(groupby).apply(list)
-
-
-def _get_non_repeating_sequence(sequence):
-    sequence = iter(sequence)
-    current = next(sequence)
-    # always yield first element
-    yield current
-    for new in sequence:
-        # only yield next element if it's different
-        if new != current:
-            yield new
-            current = new
-
-
-def remove_subsequent_identical_elements(h3_series):
-    """From a series of ordered collections of H3s, remove subsequent dupes.
-
-    Parameters
-    ----------
-    h3_series: pandas.Series
-        Each element contains a list or other ordered collection of H3s.
-
-    Returns
-    -------
-    pandas.Series
-        Same as input but with subsequent dupes removed.
-
-    """
-    return h3_series.apply(_get_non_repeating_sequence).apply(list)
 
 
 def _get_h3_line_between(sequence):
