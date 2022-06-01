@@ -83,28 +83,6 @@ def h3_series_to_h3_parent(h3_series, resolution=0):
     return h3_series.apply(lambda cellid: h3.h3_to_parent(cellid, resolution))
 
 
-def h3_series_to_series_of_h3_sequences(h3_series=None, groupby=None):
-    """Turn a series of H3s into a series of lists of H3s.
-
-    Parameters
-    ----------
-    h3_series: pandas.Series
-        Each element contains a single h3.
-    groupby: sequence
-        Optional. Will be used to group the h3s. If it's not given, the level 0
-        of the index of h3_series will be used to group.
-
-    Returns
-    -------
-    pandas.Series:
-        Each element contains an ordered collection (list) of h3s.
-
-    """
-    if groupby is None:
-        groupby = h3_series.index.get_level_values(0)
-    return h3_series.groupby(groupby).apply(list)
-
-
 def _get_h3_line_between(sequence):
     sequence = iter(sequence)
     last = next(sequence)

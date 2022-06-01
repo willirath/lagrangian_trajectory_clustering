@@ -59,3 +59,25 @@ def remove_subsequent_identical_elements(series):
 
     """
     return series.apply(_get_non_repeating_sequence).apply(list)
+
+
+def multi_index_series_to_series_sequences(series=None, groupby=None):
+    """Turn a series with a multi-index into a series of lists of elements.
+
+    Parameters
+    ----------
+    series: pandas.Series
+        Each element contains a single element.
+    groupby: sequence
+        Optional. Will be used to group the series. If it's not given, the level 0
+        of the index ofseries will be used to group.
+
+    Returns
+    -------
+    pandas.Series:
+        Each element contains an ordered collection (list) of elements.
+
+    """
+    if groupby is None:
+        groupby = series.index.get_level_values(0)
+    return series.groupby(groupby).apply(list)
