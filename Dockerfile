@@ -8,6 +8,6 @@ COPY requirements.txt .
 RUN conda config --add channels conda-forge && \
   conda install -y mamba && \
   mamba env update -n base -f ./requirements.txt && \
-  conda clean -tipsy && \
+  conda clean -tipy && \
   fix-permissions $CONDA_DIR && \
   fix-permissions /home/$NB_USER
