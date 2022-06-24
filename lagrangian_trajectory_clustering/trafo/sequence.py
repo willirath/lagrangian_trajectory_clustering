@@ -81,3 +81,30 @@ def multi_index_series_to_series_sequences(series=None, groupby=None):
     if groupby is None:
         groupby = series.index.get_level_values(0)
     return series.groupby(groupby).apply(list)
+
+
+def series_sequences_to_multi_index_series(series=None, index_name="obs"):
+    """Turn a series of iterables into a multi-index series.
+
+    Parameters
+    ----------
+    series: pandas.Series
+        Each element contains an iterable.
+    index_name: str
+        Name of the additional index level.
+
+    Returns
+    -------
+    pandas.Series:
+        Multi-index series where each element contains a single element.
+
+    """
+    additional_index_column = (
+        series.apply(lambda lst: list(range(len(lst)))).rename(index_name).explode()
+    )
+    return (
+        series.explode()
+        .to_frame()
+        .set_index(additional_index_column, append=True)
+        .iloc[:, 0]
+    )
