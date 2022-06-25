@@ -1,4 +1,6 @@
 import numpy as np
+from functools import reduce
+from operator import add
 
 
 def get_step_sizes(df):
@@ -108,3 +110,66 @@ def series_sequences_to_multi_index_series(series=None, index_name="obs"):
         .set_index(additional_index_column, append=True)
         .iloc[:, 0]
     )
+
+
+def _line_between(start, end):
+    """Find intermediate points on a line from (x0, y0) to (x1, y1).
+    
+    Parameters
+    ----------
+    start: tuple
+        Contains x0 and y0.
+    end: tuple
+        Contains x1 and y1.
+    
+    Returns
+    -------
+    list
+        List of all intermediate points (x, y).
+    
+    """
+    x0, y0 = start
+    x1, y1 = end
+    N = max(abs(x1 - x0) + 1, abs(y1 - y0) + 1)
+    dx = (x1 - x0) / (N - 1)
+    dy = (y1 - y0) / (N - 1)
+    xx = (round(x0 + n * dx) for n in range(N))
+    yy = (round(y0 + n * dy) for n in range(N))
+    return list(zip(xx, yy))
+
+
+def _line_between_segments(points):
+    """Fill in lines on all segments of points.
+    
+    Parameters
+    ----------
+    points: list
+        List of points (x, y).
+        
+    Returns
+    -------
+    list
+        List of points (x, y) with all segments filled in.
+
+    """
+    segments = [
+        _line_between(start, end)[:-1] for start, end in zip(points[:-1], points[1:])
+    ] + [points[-1:],]
+    return reduce(add, segments)
+
+
+def fill_in_segments(series):
+    """Fill in all intermediate points.
+
+    Parameters
+    ----------
+    series: pandas.Series
+        Each element contains an iterable of points along a trajectory.
+
+    Returns
+    -------
+    pandas.Series:
+        Each element contains an iterable of points along a trajectory.
+
+    """
+    return series.apply(_line_between_segments)
