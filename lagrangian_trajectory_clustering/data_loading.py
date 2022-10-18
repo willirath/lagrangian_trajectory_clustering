@@ -24,35 +24,35 @@ def load_cape_verde_trajectories(year=1993, cache_path="data/"):
         All trajectories in dataset.
     """
     hashes = {
-        "cape_verde_drift_trajectories_1-10000_1993.csv.gz": "md5:ef56bc1dcf83d2dfa85f815fe4902d82",
-        "cape_verde_drift_trajectories_1-10000_1994.csv.gz": "md5:6e4d07f018294224b4c3a26092bb8e27",
-        "cape_verde_drift_trajectories_1-10000_1995.csv.gz": "md5:2ab1f9ffc881de0c21fcade2c12010ee",
-        "cape_verde_drift_trajectories_1-10000_1996.csv.gz": "md5:800a2f5b9cd8b7e56c75ce15a7363dca",
-        "cape_verde_drift_trajectories_1-10000_1997.csv.gz": "md5:d967eeceacf4d7c3630c1d396f0affc4",
-        "cape_verde_drift_trajectories_1-10000_1998.csv.gz": "md5:d21f7509aca7c5aaba17415ba6b9b9d9",
-        "cape_verde_drift_trajectories_1-10000_1999.csv.gz": "md5:38fc6fe5ddd598cc7ae9b55d6db01711",
-        "cape_verde_drift_trajectories_1-10000_2000.csv.gz": "md5:a320405ac2d4d28349f5f4bfe43073ed",
-        "cape_verde_drift_trajectories_1-10000_2001.csv.gz": "md5:ec7f77fab7c70e87783a6359623c93b8",
-        "cape_verde_drift_trajectories_1-10000_2002.csv.gz": "md5:16b66f837b8f4e831c1ad72bc513195b",
-        "cape_verde_drift_trajectories_1-10000_2003.csv.gz": "md5:8a4ce9ea4e4ed443b4dd9d590846f7b5",
-        "cape_verde_drift_trajectories_1-10000_2004.csv.gz": "md5:66f4f7b7db774f96dfc82739537efc94",
-        "cape_verde_drift_trajectories_1-10000_2005.csv.gz": "md5:479b330f464042ec7513be0fcda1bfed",
-        "cape_verde_drift_trajectories_1-10000_2006.csv.gz": "md5:28b6054fbe7fef5a132cb5e8294088c8",
-        "cape_verde_drift_trajectories_1-10000_2007.csv.gz": "md5:20e82326107a5924413829d4e6ed70e3",
-        "cape_verde_drift_trajectories_1-10000_2008.csv.gz": "md5:6ac0c56c635908c77a974b2ce9bdcd8b",
-        "cape_verde_drift_trajectories_1-10000_2009.csv.gz": "md5:b19d1c17b04a3557bbaef737b1dc6f32",
-        "cape_verde_drift_trajectories_1-10000_2010.csv.gz": "md5:1701e3b84dc783c9b9f1451b0fa531ff",
-        "cape_verde_drift_trajectories_1-10000_2011.csv.gz": "md5:31279ba8b032b5f7607e90b4c01053ab",
-        "cape_verde_drift_trajectories_1-10000_2012.csv.gz": "md5:3cd0a5e6ac37b469e6f11c1dc402103b",
-        "cape_verde_drift_trajectories_1-10000_2013.csv.gz": "md5:2f145489bc9dcd358c34689292cf5122",
-        "cape_verde_drift_trajectories_1-10000_2014.csv.gz": "md5:23d2d43aa57c83a9597cef8bd4e4642d",
-        "cape_verde_drift_trajectories_1-10000_2015.csv.gz": "md5:9054f7b6c82a4ebfd371d9a0e6c63f06",
-        "cape_verde_drift_trajectories_1-10000_2016.csv.gz": "md5:f1346b82079dec8099c89113a7678c2b",
-        "cape_verde_drift_trajectories_1-10000_2017.csv.gz": "md5:67300c5de652b6e00373e5ebad59ecf4",
+        "cape_verde_drift_trajectories_1-10000_1993.csv.gz": "md5:5615e96a199058b2b2a1b1c6a81fa658",
+        "cape_verde_drift_trajectories_1-10000_1994.csv.gz": "md5:6274b95fa22067d905609fb60cc37f0b",
+        "cape_verde_drift_trajectories_1-10000_1995.csv.gz": "md5:220905092b6bbb362faf36de14e15666",
+        "cape_verde_drift_trajectories_1-10000_1996.csv.gz": "md5:bc89aef5400772be961c5643af4645a5",
+        "cape_verde_drift_trajectories_1-10000_1997.csv.gz": "md5:4014832ec372c39809d83c897588e86b",
+        "cape_verde_drift_trajectories_1-10000_1998.csv.gz": "md5:0c4868543b137c88bfd396ad8e290d10",
+        "cape_verde_drift_trajectories_1-10000_1999.csv.gz": "md5:0cb004599536102ba472de5b8137636e",
+        "cape_verde_drift_trajectories_1-10000_2000.csv.gz": "md5:a0276a0289059a983a0991af269f302c",
+        "cape_verde_drift_trajectories_1-10000_2001.csv.gz": "md5:f66f388159a3d9bcb517887f2dda15f7",
+        "cape_verde_drift_trajectories_1-10000_2002.csv.gz": "md5:61e2a8e509df5a3ea5e4d23563723844",
+        "cape_verde_drift_trajectories_1-10000_2003.csv.gz": "md5:95a512c4378cafb6c6c2f2a677cea609",
+        "cape_verde_drift_trajectories_1-10000_2004.csv.gz": "md5:bcfe219f01d1e079299b649acd06d4e2",
+        "cape_verde_drift_trajectories_1-10000_2005.csv.gz": "md5:cf85cc276ccc5b96f18adfdf3eb041b0",
+        "cape_verde_drift_trajectories_1-10000_2006.csv.gz": "md5:e414f66aca25f1a9e7299d0cab160ced",
+        "cape_verde_drift_trajectories_1-10000_2007.csv.gz": "md5:652170fbff78331d374db1cb1b4f711a",
+        "cape_verde_drift_trajectories_1-10000_2008.csv.gz": "md5:e81bd041b921151fe4db5d3e314c4d43",
+        "cape_verde_drift_trajectories_1-10000_2009.csv.gz": "md5:92c51bc9f3506f6748e22a6487a2a3fc",
+        "cape_verde_drift_trajectories_1-10000_2010.csv.gz": "md5:77b9c8858ebc9b09769a41afd5dee712",
+        "cape_verde_drift_trajectories_1-10000_2011.csv.gz": "md5:c460e2951915610d3bf25e61f47ee5a9",
+        "cape_verde_drift_trajectories_1-10000_2012.csv.gz": "md5:9efa8ff855fc814e13dfcfb05cf3abf8",
+        "cape_verde_drift_trajectories_1-10000_2013.csv.gz": "md5:82c763b8c89c8bc7d0c7cd4d856111e5",
+        "cape_verde_drift_trajectories_1-10000_2014.csv.gz": "md5:386e2b9912952f0d1ec4cc22e93416fc",
+        "cape_verde_drift_trajectories_1-10000_2015.csv.gz": "md5:8345338f098b0556010fb855d71e8508",
+        "cape_verde_drift_trajectories_1-10000_2016.csv.gz": "md5:2b2783e552a5125f9a70d5675d372c30",
+        "cape_verde_drift_trajectories_1-10000_2017.csv.gz": "md5:33d7e557d9f35abd262f349bb6c38bb7",
     }
     key = f"cape_verde_drift_trajectories_1-10000_{year:04d}.csv.gz"
     file_name = retrieve(
-        url=f"doi:10.5281/zenodo.6589933/{key}",
+        url=f"doi:10.5281/zenodo.6826071/{key}",
         path=cache_path,
         known_hash=hashes[key],
     )
@@ -122,17 +122,7 @@ def load_labsea_trajectories(cache_path="data/"):
         ds = xr.open_zarr(
             "https://data.geomar.de/downloads/20.500.12085/830c72af-b5ca-44ac-8357-3173392f402b/submitted/tracks_randomvel_mxl_osnap_backwards_1990.zarr/"
         )
-        df = (
-            ds[
-                [
-                    "lat",
-                    "lon",
-                    "time",
-                ]
-            ]
-            .isel(traj=slice(0, 10_000))
-            .to_dataframe()
-        )
+        df = ds[["lat", "lon", "time",]].isel(traj=slice(0, 10_000)).to_dataframe()
 
         df = df.reset_index()
         df.to_csv(file_name, index=False)
@@ -149,10 +139,7 @@ def load_labsea_trajectories(cache_path="data/"):
 
 
 def subset_trajectories(
-    df=None,
-    num_traj=300,
-    use_random=False,
-    random_seed=None,
+    df=None, num_traj=300, use_random=False, random_seed=None,
 ):
     """Subset trajectory data.
 
